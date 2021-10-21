@@ -16,20 +16,20 @@ Ans: db.products.find({},{product_name:1,product_material:1,_id:0})
 
 
 Q6.Find the product with a row id of 10
-Ans: db.product.find({id:"10"})
+Ans: db.products.find({id:"10"})
 
 Q7.Find only the product name and product material
 Ans: db.products.find({},{product_name:1,product_material:1,_id:0})
 
 Q8.Find all products which contain the value of soft in product material 
-Ans:db.product.find({product_material:"Soft"})
+Ans:db.products.find({product_material:"Soft"})
 
 Q9.Find products which contain product color indigo  and product price 492.00
-Ans: db.product.find({$and: [{ product_color: "indigo",product_price: 492.00}]})
+Ans: db.products.find({$and: [{ product_color: "indigo",product_price: 492.00}]})
 
 Q10.Delete the products which product price value are same
-Ans: db.product.aggregate([{$group:{_id:"$product_price",count: {$sum: 1}}},{$match:{count:{"$gt":1}}}])
+Ans: db.products.aggregate([{$group:{_id:"$product_price",count: {$sum: 1}}},{$match:{count:{"$gt":1}}}])
 
-db.product.remove({"product_price":36})
+db.products.remove({"product_price":36})
 
-db.product.remove({"product_price":47})
+db.products.remove({"product_price":47})
